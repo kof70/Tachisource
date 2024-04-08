@@ -1,0 +1,28 @@
+
+<div class="card">
+    <p-table [value]="products" [tableStyle]="{'min-width': '50rem'}">
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th>Name </th>
+                <th>Action</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product let-columns="columns">
+            <ng-template ngIf="products">
+                <tr>
+                    <td>{{product.name}}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary">Download</button>
+                    </td>
+                
+                </tr>
+            </ng-template>
+            <ng-template ngIf="!products">
+                <tr>
+                    <td colspan="2">No data found</td>
+                </tr>
+            </ng-template>
+            
+        </ng-template>
+    </p-table>
+</div>
