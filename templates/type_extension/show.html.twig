@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypeExtension{% endblock %}
+
+{% block body %}
+    <h1>TypeExtension</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ type_extension.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ type_extension.titre }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_type_extension_index') }}">back to list</a>
+
+    <a href="{{ path('app_type_extension_edit', {'id': type_extension.id}) }}">edit</a>
+
+    {{ include('type_extension/_delete_form.html.twig') }}
+{% endblock %}

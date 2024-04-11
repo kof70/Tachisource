@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New TypeExtension{% endblock %}
+
+{% block body %}
+    <h1>Create new TypeExtension</h1>
+
+    {{ include('type_extension/_form.html.twig') }}
+
+    <a href="{{ path('app_type_extension_index') }}">back to list</a>
+{% endblock %}

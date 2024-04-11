@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Extension{% endblock %}
+
+{% block body %}
+    <h1>Create new Extension</h1>
+
+    {{ include('extension/_form.html.twig') }}
+
+    <a href="{{ path('app_extension_index') }}">back to list</a>
+{% endblock %}

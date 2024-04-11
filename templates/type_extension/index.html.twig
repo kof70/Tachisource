@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypeExtension index{% endblock %}
+
+{% block body %}
+    <h1>TypeExtension index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for type_extension in type_extensions %}
+            <tr>
+                <td>{{ type_extension.id }}</td>
+                <td>{{ type_extension.titre }}</td>
+                <td>
+                    <a href="{{ path('app_type_extension_show', {'id': type_extension.id}) }}">show</a>
+                    <a href="{{ path('app_type_extension_edit', {'id': type_extension.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_type_extension_new') }}">Create new</a>
+{% endblock %}
