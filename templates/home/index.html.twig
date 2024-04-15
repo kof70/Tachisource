@@ -1,20 +1,87 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Acceuil{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('asset/css/index.css') }}">
+{% endblock %}
+
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/.__Tachi/TachiSource/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/.__Tachi/TachiSource/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <div class="main-container">
+        <div class="background"></div>
+        <div class="groups">
+            <div class="button"><input class="button-input" /></div>
+            <div class="groups-4"><span class="news">News</span></div>
+            <div class="groups-5"><span class="docs">Docs</span></div>
+            <span class="mihon">Mihon</span>
+            <div class="image-6"></div>
+            <span class="getv-0-16-5">Getv0.16.5</span>
+            <div class="image-7"></div>
+            <div class="image-8"></div>
+            <div class="image-9"></div>
+            <div class="image-a"></div>
+            <div class="image-b"></div>
+            <div class="image-c"></div>
+            <div class="image-d"></div>
+        </div>
+        <div class="groups-e">
+            <div class="flex-row-b">
+                <div class="image-f"></div>
+                <span class="mihon-10">Mihon</span
+                ><span class="full-featured-reader">Full-featuredreader</span
+                ><span class="discover-and-rea"
+                >Discover and read manga,webtoons,comics,and<br />more-easier
+            thanever onyourAndroiddevice.</span
+                >
+                <div class="button-11">
+                    <button class="background-12">
+                        <span class="get-started">Getstarted</span>
+                    </button>
+                </div>
+                <div class="button-13">
+                    <button class="background-14">
+                        <span class="download">Download</span>
+                    </button>
+                </div>
+            </div>
+            <div class="flex-row-acf">
+                <div class="groups-15"></div>
+                <div class="groups-16">
+                    <div class="image-17"></div>
+                    <span class="extensions">Extensions</span
+                    ><span class="bring-your-own-c"
+                    >Bring your own content from a variety of<br />sources.</span
+                    >
+                </div>
+                <div class="background-18">
+                    <div class="image-19"></div>
+                    <span class="tracking">Tracking</span
+                    ><span class="automatically-ke"
+                    >Automatically keep track of your series with<br />MyAnimeList,
+              AniList, Kitsu, and more</span
+                    ><span class="setup-tracking">Setup tracking</span>
+                    <div class="image-1a"></div>
+                </div>
+                <div class="background-1b">
+                    <div class="groups-1c">
+                        <div class="image-1d"></div>
+                        <span class="customization">Customization</span
+                        ><span class="make-it-yours"
+                        >Make it vours with multiole reading modes<br />custom color
+                fiters, and many other settings.</span
+                        ><span class="get-started-1e">Get started</span>
+                        <div class="image-1f"></div>
+                    </div>
+                </div>
+                <div class="background-20"></div>
+            </div>
+            <div class="groups-21">
+          <span class="open-source-apache"
+          >Open-source Apache Licensed Privacy policy<br />Copyright @ 2024
+            Mihon App</span
+          >
+                <div class="background-22"></div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
