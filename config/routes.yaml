@@ -1,3 +1,9 @@
 controllers:
     resource: ../src/Controller/
     type: attribute
+
+index:
+    path: /
+    controller: App\Controller\HomeController::index
+    methods: [GET, POST]
+
