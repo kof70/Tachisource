@@ -3,29 +3,30 @@
 {% block title %}Extension index{% endblock %}
 
 {% block body %}
-    <h1>Extension index</h1>
+    <main class="px-3">
+    <h1>Extension</h1>
+    <input type="text" id="search" class="form-control" placeholder="Search">
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>ApkName</th>
-                <th>UpdatedAt</th>
-                <th>actions</th>
-            </tr>
-        </thead>
+    <table class="table" hidden="hidden" >
+
         <tbody>
         {% for extension in extensions %}
             <tr>
-                <td>{{ extension.id }}</td>
-                <td>{{ extension.nom }}</td>
-                <td>{{ extension.apkName }}</td>
-                <td>{{ extension.updatedAt ? extension.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+
+
                 <td>
-                    <a href="{{ path('app_extension_show', {'id': extension.id}) }}">show</a>
-                    <a href="{{ path('app_extension_edit', {'id': extension.id}) }}">edit</a>
+                    <div class="row">
+                    <div class="col-6">
+                    {{ extension.apkName }}
+                        <span class="badge badge-primary">{{ extension.updatedAt ? extension.updatedAt|date('Y-m-d H:i:s') : '' }}</span>
+                    </div>
+                        <div class="col-6">
+                            <a href="{{ asset('apk/extensions/'~extension.ApkName) }}"> <i class="fa-solid fa-download"></i> </a>
+                        </div>
+                    </div>
+
                 </td>
+
             </tr>
         {% else %}
             <tr>
@@ -35,5 +36,32 @@
         </tbody>
     </table>
 
+{% if app.user %}
     <a href="{{ path('app_extension_new') }}">Create new</a>
+{% endif %}
+    </main>
+
+    <script>
+        document.getElementById('search').addEventListener('input', function() {
+            let search = this.value;
+            let rows = document.querySelectorAll('table tbody tr');
+            rows.forEach(row => {
+                let found = false;
+                row.querySelectorAll('td').forEach(cell => {
+                    if (cell.textContent.includes(search)) {
+                        found = true;
+                    }
+                });
+                if (found) {
+                    row.style.display = '';
+                    document.querySelector('table').removeAttribute('hidden');
+                } else {
+                    row.style.display = 'none';
+                    document.querySelector('table').attributes.hidden = true;
+                }
+            });
+        });
+        // document.querySelector('table').removeAttribute('hidden');
+    </script>
+
 {% endblock %}
