@@ -19,8 +19,7 @@ class Extension
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 100)]
-    private ?string $nom = null;
+
 
     /**
      * @var Collection<int, TypeExtension>
@@ -43,7 +42,7 @@ class Extension
 
     public function __construct()
     {
-        $this->updatedAt = new \DateTimeImmutable('now');
+        //$this->updatedAt = new \DateTimeImmutable('now');
         $this->type = new ArrayCollection();
     }
 
@@ -52,17 +51,6 @@ class Extension
         return $this->id;
     }
 
-    public function getNom(): ?string
-    {
-        return $this->nom;
-    }
-
-    public function setNom(string $nom): static
-    {
-        $this->nom = $nom;
-
-        return $this;
-    }
 
     /**
      * @return Collection<int, TypeExtension>
@@ -116,7 +104,7 @@ class Extension
         if (null !== $apkFile) {
             // It is required that at least one field changes if you are using doctrine
             // otherwise the event listeners won't be called and the file is lost
-//            $this->updatedAt = new \DateTimeImmutable();
+            $this->updatedAt = new \DateTimeImmutable('now');
         }
     }
 
