@@ -16,10 +16,8 @@ class Langue
     private ?int $id = null;
 
     #[ORM\Column(length: 20)]
-    private ?string $nomlangue = null;
+    private ?string $langue = null;
 
-    #[ORM\Column(length: 10)]
-    private ?string $sigle = null;
 
     /**
      * @var Collection<int, Extension>
@@ -39,29 +37,19 @@ class Langue
         return $this->id;
     }
 
-    public function getNomlangue(): ?string
+    public function getLangue(): ?string
     {
-        return $this->nomlangue;
+        return $this->langue;
     }
 
-    public function setNomlangue(string $nomlangue): static
+    public function setLangue(string $langue): static
     {
-        $this->nomlangue = $nomlangue;
+        $this->langue = $langue;
 
         return $this;
     }
 
-    public function getSigle(): ?string
-    {
-        return $this->sigle;
-    }
 
-    public function setSigle(string $sigle): static
-    {
-        $this->sigle = $sigle;
-
-        return $this;
-    }
 
     /**
      * @return Collection<int, Extension>
@@ -95,6 +83,6 @@ class Langue
 
     public function __toString()
     {
-        return $this->nomlangue;
+        return $this->langue;
     }
 }
