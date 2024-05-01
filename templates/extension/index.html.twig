@@ -4,8 +4,8 @@
 
 {% block body %}
     <main class="px-3">
-    <h1>Extension</h1>
-    <input type="text" id="search" class="form-control" placeholder="Search">
+        <h1>Extension</h1>
+        {# <input type="text" id="search" class="form-control" placeholder="Search">
 
     <table class="table" hidden="hidden" >
 
@@ -34,34 +34,84 @@
             </tr>
         {% endfor %}
         </tbody>
-    </table>
+    </table> #}
+        <input type="text" id="search" class="form-control" placeholder="Search">
 
-{% if app.user %}
-    <a href="{{ path('app_extension_new') }}">Create new</a>
-{% endif %}
+        <div id="extensions-list" hidden="hidden">
+            {% for extension in extensions %}
+                <div class="card mb-3 extension-item">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <h5 class="card-title">{{ extension.apkName }}</h5>
+                                <p class="card-text">
+                                    <span class="badge badge-primary">{{ extension.updatedAt ? extension.updatedAt|date('Y-m-d H:i:s') : '' }}</span>
+                                </p>
+                            </div>
+                            <div class="col-6 text-right">
+                                <a href="{{ asset('apk/extensions/'~extension.apkName) }}" class="btn btn-primary"><i class="fa-solid fa-download"></i> Download</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="alert alert-info" role="alert">No records found</div>
+            {% endfor %}
+        </div>
+
+        <div id="pagination" class="d-none">
+            <!-- Pagination Bootstrap -->
+        </div>
+
+        {% if app.user %}
+            <a href="{{ path('app_extension_new') }}">Create new</a>
+        {% endif %}
     </main>
 
     <script>
-        document.getElementById('search').addEventListener('input', function() {
-            let search = this.value;
-            let rows = document.querySelectorAll('table tbody tr');
-            rows.forEach(row => {
-                let found = false;
-                row.querySelectorAll('td').forEach(cell => {
-                    if (cell.textContent.includes(search)) {
-                        found = true;
+        $(document).ready(function () {
+
+            document.getElementById('search').addEventListener('input', function () {
+                let search = this.value;
+                let rows = document.querySelectorAll('.extension-item');
+                rows.forEach(row => {
+                    let found = false;
+                    row.querySelectorAll('.card-title').forEach(cell => {
+                        if (cell.textContent.includes(search)) {
+                            found = true;
+                        }
+                    });
+                    if (found) {
+                        row.removeAttribute('hidden');
+                        document.getElementById('extensions-list').removeAttribute('hidden');
+                    } else {
+                        row.setAttribute('hidden', 'hidden');
+                        document.getElementById('extensions-list').setAttribute('hidden', 'hidden');
                     }
                 });
-                if (found) {
-                    row.style.display = '';
-                    document.querySelector('table').removeAttribute('hidden');
-                } else {
-                    row.style.display = 'none';
-                    document.querySelector('table').attributes.hidden = true;
-                }
             });
         });
-        // document.querySelector('table').removeAttribute('hidden');
+
+        /* document.getElementById('search').addEventListener('input', function() {
+             let search = this.value;
+             let rows = document.querySelectorAll('table tbody tr');
+             rows.forEach(row => {
+                 let found = false;
+                 row.querySelectorAll('td').forEach(cell => {
+                     if (cell.textContent.includes(search)) {
+                         found = true;
+                     }
+                 });
+                 if (found) {
+                     row.style.display = '';
+                     document.querySelector('table').removeAttribute('hidden');
+                 } else {
+                     row.style.display = 'none';
+                     document.querySelector('table').attributes.hidden = true;
+                 }
+             });
+         });
+         // document.querySelector('table').removeAttribute('hidden');*/
     </script>
 
 {% endblock %}

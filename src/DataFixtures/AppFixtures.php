@@ -28,14 +28,14 @@ class AppFixtures extends Fixture
         $manager->persist($user1);
 
         $langue = new Langue();
-        $langue->setSigle('Fr');
-        $langue->setNomlangue('Français');
+
+        $langue->setLangue('fr');
 
         $manager->persist($langue);
 
         $langue1 = new Langue();
-        $langue1->setSigle('En');
-        $langue1->setNomlangue('Anglais');
+
+        $langue1->setLangue('en');
 
         $manager->persist($langue1);
 

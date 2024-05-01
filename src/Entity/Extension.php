@@ -28,7 +28,7 @@ class Extension
     private Collection $type;
 
     #[ORM\ManyToOne(inversedBy: 'extensions')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Langue $langue = null;
 
     #[Vich\UploadableField(mapping: 'apk', fileNameProperty: 'apkName')]
