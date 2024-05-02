@@ -8,7 +8,7 @@ Ce guide décrit les étapes pour cloner le projet Symfony depuis GitHub, instal
 
 ## Prerequit
 ce projet est fait avec une version de php>=8.1
-veuiller installer la version adequoit de php au prealable et de symfony cli 
+veuiller installer la version adequoit de [php]([text](https://www.php.net/downloads.php)) et [composer]([link](https://getcomposer.org/download/)) au prealable et de symfony cli 
 
 ---
 
