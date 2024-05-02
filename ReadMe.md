@@ -8,7 +8,7 @@ Ce guide décrit les étapes pour cloner le projet Symfony depuis GitHub, instal
 
 ## Prerequit
 ce projet est fait avec une version de php>=8.1
-veuiller installer la version adequoit de **[php](https://www.php.net/downloads.php)** et **[composer](https://getcomposer.org/download/)** au prealable et de symfony cli 
+veuiller installer la version adequoit de **[php](https://www.php.net/downloads.php)** et **[composer](https://getcomposer.org/download/)** au prealable et de **[symfony cli](https://symfony.com/download)** 
 
 ---
 
@@ -53,7 +53,7 @@ composer install
 ```bash
 php bin/console doctrine:database:create
 ```
-    - pour ceux qui ont `symfony cli` d'installer 
+- pour ceux qui ont `symfony cli` d'installer 
 ```bash
 symfony console doctrine:database:create
 ```
@@ -85,7 +85,7 @@ ou
 php -S 127.0.0.1:8000 -t public  
 ```
 
-    - pour ce qui ont symfony cli d'installer 
+- pour ce qui ont symfony cli d'installer 
 ```bash
 symfony serve
 ```
@@ -100,6 +100,7 @@ symfony serve
 - Windows
 - Linux
 
+###### ***```Par contre vous devrait cherche les commance adapter a votre systeme si ceux fournie ne marche pas avec le votre ```***
 ---
 
 ## Contact
