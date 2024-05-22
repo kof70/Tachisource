@@ -106,4 +106,4 @@ symfony serve
 ## Contact
 
 Pour toute question ou problème, contactez-nous à [sessoklinaulrich@gamil.com](mailto:sessoklinaulrich@gmail.com) ou 
-[djakpakoffi2003@gmail.com](mailto:djakpakoffi2003@gmail.com).
+[djakpakoffi@gmail.com](mailto:djakpakoffi7029@gmail.com).
